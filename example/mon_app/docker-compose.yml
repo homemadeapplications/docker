@@ -1,0 +1,20 @@
+version: '3'
+services:
+  monapp:
+    image: monimage
+    depends_on:
+      - mongo
+    ports:
+      - "80:80"
+    networks:
+      - monreseau
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - monreseau
+    volumes:
+      - ./data:/data/db
+networks:
+  monreseau:
