@@ -1,0 +1,25 @@
+version: '3'
+services:
+  chuck_norris_app:
+    image: chuck_norris_image
+    depends_on:
+      - chuck_db
+    networks:
+      - chuck_norris_network
+    environment:
+      - DB_CHUCK_NORRIS=mongodb://chuck_db:27017
+
+  chuck_db:
+    image: mongo:latest
+    networks:
+      - chuck_norris_network
+    volumes:
+      - chuck_volume_test:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  chuck_volume_test:
+
+networks:
+  chuck_norris_network:
