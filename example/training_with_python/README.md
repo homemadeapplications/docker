@@ -12,7 +12,15 @@ venv\Scripts\activate
 ```
 docker build -t chuck_norris_image .
 ```
-## lancement de l'image
+## lancement de l'image (facultatif)
 ```
 docker run --name chuch_norris_contener chuck_norris_image
+```
+## lancement du docker compose
+```
+docker compose up
+```
+## arret du docker compose
+```
+docker compose down
 ```
